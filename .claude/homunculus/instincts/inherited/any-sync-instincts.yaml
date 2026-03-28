@@ -1,0 +1,543 @@
+# Instincts generated from https://github.com/Kimenzo/any-sync
+# Generated: 2026-03-28T15:58:00.673Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: any-sync-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Commit Length
+
+## Action
+
+Write moderate-length commit messages (~57 characters)
+
+## Evidence
+
+- Average commit message length: 57 chars
+- Based on 200 commits
+
+---
+id: any-sync-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Naming Files
+
+## Action
+
+Use snake_case naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: snake_case
+
+---
+id: any-sync-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: any-sync-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: any-sync-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: any-sync-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: **/*.test.*
+
+---
+id: any-sync-workflow-proto-schema-and-generated-code-update
+trigger: "when doing proto schema and generated code update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Workflow Proto Schema And Generated Code Update
+
+## Action
+
+Follow the proto-schema-and-generated-code-update workflow:
+1. Edit one or more .proto files (e.g., add/remove fields, messages, or services).
+2. Regenerate Go code using protoc or buf (resulting in changes to .pb.go and sometimes .vtproto.pb.go files).
+3. Update related model or builder files if necessary.
+4. Commit all updated .proto and generated .pb.go files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/*.proto, **/*.pb.go, **/*_vtproto.pb.go
+
+---
+id: any-sync-workflow-feature-development-with-tests-and-docs
+trigger: "when doing feature development with tests and docs"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Workflow Feature Development With Tests And Docs
+
+## Action
+
+Follow the feature-development-with-tests-and-docs workflow:
+1. Implement the feature in multiple new or existing .go files.
+2. Add or update test files (e.g., *_test.go) to cover the new functionality.
+3. Add or update documentation files (e.g., docs/plans/*.md, README.md).
+4. Update go.mod and go.sum if new dependencies are required.
+5. Commit all related implementation, test, and documentation files.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/*.go, **/*_test.go, docs/**/*.md
+
+---
+id: any-sync-workflow-dependency-bump-via-dependabot
+trigger: "when doing dependency bump via dependabot"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Workflow Dependency Bump Via Dependabot
+
+## Action
+
+Follow the dependency-bump-via-dependabot workflow:
+1. Update go.mod and go.sum to reflect new dependency versions.
+2. Commit go.mod and go.sum with a message referencing the dependency and new version.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: go.mod, go.sum
+
+---
+id: any-sync-workflow-test-fix-or-compatibility-update
+trigger: "when doing test fix or compatibility update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Kimenzo/any-sync
+---
+
+# Any Sync Workflow Test Fix Or Compatibility Update
+
+## Action
+
+Follow the test-fix-or-compatibility-update workflow:
+1. Edit or add *_test.go files to fix compatibility or test logic.
+2. Update Makefile or CI scripts if necessary.
+3. Commit test and/or Makefile changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: **/*_test.go, Makefile
+
+---
+id: any-sync-naming-files-snake-case
+trigger: "When creating or renaming a file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Naming Files Snake Case
+
+## Action
+
+Use snake_case for file names
+
+## Evidence
+
+- Pattern in repository file names
+- Matches Go community conventions
+
+---
+id: any-sync-naming-functions-camel-case
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Naming Functions Camel Case
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in Go codebase
+- Matches Go community conventions
+
+---
+id: any-sync-naming-classes-pascal-case
+trigger: "When defining a struct or class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Naming Classes Pascal Case
+
+## Action
+
+Use PascalCase for struct or class names
+
+## Evidence
+
+- Pattern in Go codebase
+- Matches Go community conventions
+
+---
+id: any-sync-naming-constants-screaming-snake-case
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Naming Constants Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in Go codebase
+- Matches Go community conventions
+
+---
+id: any-sync-imports-relative
+trigger: "When importing modules within the repository"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Imports Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in Go import statements
+
+---
+id: any-sync-exports-named
+trigger: "When exporting functions or types"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Exports Named
+
+## Action
+
+Use named exports (export specific identifiers, not default)
+
+## Evidence
+
+- Pattern in Go codebase
+- Go does not support default exports
+
+---
+id: any-sync-test-file-naming
+trigger: "When writing tests for Go code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Test File Naming
+
+## Action
+
+Place tests in *_test.go files alongside or in test folders
+
+## Evidence
+
+- Pattern in files: **/*_test.go
+
+---
+id: any-sync-test-coverage-on-feature
+trigger: "When implementing a new feature"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Test Coverage On Feature
+
+## Action
+
+Add or update *_test.go files to cover the new functionality
+
+## Evidence
+
+- Workflow: feature-development-with-tests-and-docs
+- Example commits adding tests after feature implementation
+
+---
+id: any-sync-test-fix-on-failure-or-go-update
+trigger: "When a test fails or a new Go version is released"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Test Fix On Failure Or Go Update
+
+## Action
+
+Edit or add *_test.go files and update Makefile or CI scripts as needed
+
+## Evidence
+
+- Workflow: test-fix-or-compatibility-update
+- Pattern in commit sequences
+
+---
+id: any-sync-commit-prefixes
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Commit Prefixes
+
+## Action
+
+Prefix commit messages with a type (e.g., feat:, build:, acl:, crypto:, fix:)
+
+## Evidence
+
+- Seen in commits: 'feat: add AddSeq support for incremental sync', 'build(deps): bump ...'
+
+---
+id: any-sync-commit-merge-format
+trigger: "When merging branches or pull requests"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Commit Merge Format
+
+## Action
+
+Use 'Merge pull request #X from ...' or 'Merge branch ...' in commit messages
+
+## Evidence
+
+- Seen in commits: 'Merge pull request #648 from anyproto/GO-7104-use-add-seq', 'Merge branch ...'
+
+---
+id: any-sync-commit-length-moderate
+trigger: "When writing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Commit Length Moderate
+
+## Action
+
+Keep commit messages concise (average ~57 characters)
+
+## Evidence
+
+- Average commit message length: 57
+
+---
+id: any-sync-proto-schema-update
+trigger: "When a .proto file is changed (add/remove/update messages/services)"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Proto Schema Update
+
+## Action
+
+Regenerate Go code using protoc or buf, update related model/builder files, and commit all updated .proto and generated files
+
+## Evidence
+
+- Workflow: proto-schema-and-generated-code-update
+- Pattern in files: **/*.proto, **/*.pb.go, **/*_vtproto.pb.go
+
+---
+id: any-sync-feature-dev-with-tests-docs
+trigger: "When implementing a new major feature or protocol"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Feature Dev With Tests Docs
+
+## Action
+
+Implement the feature, add/update tests, update documentation, update go.mod/go.sum if needed, and commit all related files
+
+## Evidence
+
+- Workflow: feature-development-with-tests-and-docs
+- Example commit sequences
+
+---
+id: any-sync-dependency-bump
+trigger: "When a new version of a dependency is released and go.mod/go.sum are updated"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Dependency Bump
+
+## Action
+
+Update go.mod and go.sum, and commit with a message referencing the dependency and new version
+
+## Evidence
+
+- Workflow: dependency-bump-via-dependabot
+- Seen in commit: 'build(deps): bump github.com/libp2p/go-libp2p from 0.47.0 to 0.48.0'
+
+---
+id: any-sync-test-fix-or-compat-update
+trigger: "When a new Go version is released or a test fails due to environment changes"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Kimenzo/any-sync
+---
+
+# Any Sync Test Fix Or Compat Update
+
+## Action
+
+Edit or add *_test.go files, update Makefile or CI scripts if necessary, and commit test and/or Makefile changes
+
+## Evidence
+
+- Workflow: test-fix-or-compatibility-update
+- Pattern in commit sequences
+
