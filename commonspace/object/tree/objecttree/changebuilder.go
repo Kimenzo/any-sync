@@ -3,9 +3,9 @@ package objecttree
 import (
 	"errors"
 
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/util/cidutil"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/util/cidutil"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 var ErrEmptyChange = errors.New("change payload should not be empty")

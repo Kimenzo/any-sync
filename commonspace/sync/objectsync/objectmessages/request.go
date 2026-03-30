@@ -1,7 +1,7 @@
 package objectmessages
 
 import (
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 	"google.golang.org/protobuf/proto"
 )
 

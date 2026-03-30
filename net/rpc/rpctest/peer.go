@@ -6,10 +6,10 @@ import (
 
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest/multiconntest"
-	"github.com/anyproto/any-sync/net/secureservice"
-	"github.com/anyproto/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest/multiconntest"
+	"github.com/Kimenzo/any-sync/net/secureservice"
+	"github.com/Kimenzo/any-sync/net/transport"
 )
 
 func MultiConnPair(peerIdServ, peerIdClient string) (serv, client transport.MultiConn) {

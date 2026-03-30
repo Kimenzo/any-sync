@@ -7,9 +7,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc"
 )
 
 const PeerGlobalName = "peerglobalpool"

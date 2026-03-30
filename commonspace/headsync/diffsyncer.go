@@ -7,22 +7,22 @@ import (
 
 	"github.com/quic-go/quic-go"
 
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/kvinterfaces"
-	"github.com/anyproto/any-sync/commonspace/object/treesyncer"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/kvinterfaces"
+	"github.com/Kimenzo/any-sync/commonspace/object/treesyncer"
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/commonspace/credentialprovider"
-	"github.com/anyproto/any-sync/commonspace/deletionstate"
-	"github.com/anyproto/any-sync/commonspace/object/acl/syncacl"
-	"github.com/anyproto/any-sync/commonspace/object/treemanager"
-	"github.com/anyproto/any-sync/commonspace/peermanager"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/commonspace/credentialprovider"
+	"github.com/Kimenzo/any-sync/commonspace/deletionstate"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/syncacl"
+	"github.com/Kimenzo/any-sync/commonspace/object/treemanager"
+	"github.com/Kimenzo/any-sync/commonspace/peermanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 type DiffSyncer interface {

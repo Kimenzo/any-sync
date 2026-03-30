@@ -2,8 +2,8 @@ package debugserver
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/rpc"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/rpc"
 	"net"
 	"storj.io/drpc"
 	"storj.io/drpc/drpcmanager"

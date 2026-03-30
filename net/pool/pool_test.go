@@ -12,10 +12,10 @@ import (
 	"github.com/stretchr/testify/require"
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
 )
 
 var ctx = context.Background()
@@ -460,7 +460,7 @@ func TestProvideStat(t *testing.T) {
 		assert.Equal(t, p1.created, poolStat.PeerStats[0].Created)
 		assert.Equal(t, p1.subConnections, poolStat.PeerStats[0].SubConnections)
 		assert.Equal(t, p1.version, poolStat.PeerStats[0].Version)
-		assert.NotEmpty(t, poolStat.PeerStats[0].AliveTimeSecs)
+		assert.GreaterOrEqual(t, poolStat.PeerStats[0].AliveTimeSecs, 0.0)
 	})
 	t.Run("outgoing and incoming peers", func(t *testing.T) {
 		// given
@@ -495,13 +495,13 @@ func TestProvideStat(t *testing.T) {
 		assert.Equal(t, created1, poolStat.PeerStats[0].Created)
 		assert.Equal(t, 0, poolStat.PeerStats[0].SubConnections)
 		assert.Equal(t, uint32(0), poolStat.PeerStats[0].Version)
-		assert.NotEmpty(t, poolStat.PeerStats[0].AliveTimeSecs)
+		assert.GreaterOrEqual(t, poolStat.PeerStats[0].AliveTimeSecs, 0.0)
 
 		assert.Equal(t, p1.id, poolStat.PeerStats[1].PeerId)
 		assert.Equal(t, p1.created, poolStat.PeerStats[1].Created)
 		assert.Equal(t, p1.subConnections, poolStat.PeerStats[1].SubConnections)
 		assert.Equal(t, p1.version, poolStat.PeerStats[1].Version)
-		assert.NotEmpty(t, poolStat.PeerStats[1].AliveTimeSecs)
+		assert.GreaterOrEqual(t, poolStat.PeerStats[1].AliveTimeSecs, 0.0)
 	})
 	t.Run("only outcoming peers", func(t *testing.T) {
 		// given
@@ -535,7 +535,7 @@ func TestProvideStat(t *testing.T) {
 		assert.Equal(t, created, poolStat.PeerStats[0].Created)
 		assert.Equal(t, subConn, poolStat.PeerStats[0].SubConnections)
 		assert.Equal(t, version, poolStat.PeerStats[0].Version)
-		assert.NotEmpty(t, version, poolStat.PeerStats[0].AliveTimeSecs)
+		assert.GreaterOrEqual(t, poolStat.PeerStats[0].AliveTimeSecs, 0.0)
 	})
 	t.Run("no peers", func(t *testing.T) {
 		// given

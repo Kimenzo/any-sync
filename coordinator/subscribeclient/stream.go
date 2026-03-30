@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/anyproto/any-sync/coordinator/coordinatorproto"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
 	"github.com/cheggaaa/mb/v3"
 
 	"go.uber.org/zap"

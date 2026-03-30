@@ -3,7 +3,7 @@ package coordinatorproto
 import (
 	"context"
 	"crypto/rand"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 	"github.com/stretchr/testify/require"
 	"testing"
 	"time"

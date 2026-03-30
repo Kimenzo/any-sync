@@ -6,8 +6,8 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 type rawCacheEntry struct {

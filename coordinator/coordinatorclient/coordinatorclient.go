@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_coordinatorclient/mock_coordinatorclient.go github.com/anyproto/any-sync/coordinator/coordinatorclient CoordinatorClient
+//go:generate mockgen -destination mock_coordinatorclient/mock_coordinatorclient.go github.com/Kimenzo/any-sync/coordinator/coordinatorclient CoordinatorClient
 package coordinatorclient
 
 import (
@@ -8,16 +8,16 @@ import (
 	blocks "github.com/ipfs/go-block-format"
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/coordinator/coordinatorproto"
-	"github.com/anyproto/any-sync/identityrepo/identityrepoproto"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
-	"github.com/anyproto/any-sync/net/secureservice"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/util/cidutil"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
+	"github.com/Kimenzo/any-sync/identityrepo/identityrepoproto"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/net/secureservice"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/util/cidutil"
 )
 
 const CName = "common.coordinator.coordinatorclient"

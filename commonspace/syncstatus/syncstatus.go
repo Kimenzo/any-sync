@@ -1,8 +1,8 @@
-//go:generate mockgen -destination mock_syncstatus/mock_syncstatus.go github.com/anyproto/any-sync/commonspace/syncstatus StatusUpdater
+//go:generate mockgen -destination mock_syncstatus/mock_syncstatus.go github.com/Kimenzo/any-sync/commonspace/syncstatus StatusUpdater
 package syncstatus
 
 import (
-	"github.com/anyproto/any-sync/app"
+	"github.com/Kimenzo/any-sync/app"
 )
 
 const CName = "common.commonspace.syncstatus"

@@ -3,9 +3,9 @@ package recordverifier
 import (
 	"fmt"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 const CName = "common.acl.recordverifier"

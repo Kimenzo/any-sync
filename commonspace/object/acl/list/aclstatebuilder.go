@@ -1,8 +1,8 @@
 package list
 
 import (
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 type aclStateBuilder struct {

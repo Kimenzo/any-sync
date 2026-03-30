@@ -1,7 +1,7 @@
-//go:generate mockgen -destination mock_settingsstate/mock_settingsstate.go github.com/anyproto/any-sync/commonspace/settings/settingsstate StateBuilder,ChangeFactory
+//go:generate mockgen -destination mock_settingsstate/mock_settingsstate.go github.com/Kimenzo/any-sync/commonspace/settings/settingsstate StateBuilder,ChangeFactory
 package settingsstate
 
-import "github.com/anyproto/any-sync/commonspace/spacesyncproto"
+import "github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 
 type State struct {
 	DeletedIds     map[string]struct{}

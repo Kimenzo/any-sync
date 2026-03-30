@@ -9,7 +9,7 @@ import (
 	"github.com/anyproto/lexid"
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 type Mode int

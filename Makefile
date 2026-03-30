@@ -37,8 +37,8 @@ proto:
 	@$(eval P_ACL_RECORDS_PATH_PB := commonspace/object/acl/aclrecordproto)
 	@$(eval P_TREE_CHANGES_PATH_PB := commonspace/object/tree/treechangeproto)
 	@$(eval P_CRYPTO_PATH_PB := util/crypto/cryptoproto)
-	@$(eval P_ACL_RECORDS := M$(P_ACL_RECORDS_PATH_PB)/protos/aclrecord.proto=github.com/anyproto/any-sync/$(P_ACL_RECORDS_PATH_PB))
-	@$(eval P_TREE_CHANGES := M$(P_TREE_CHANGES_PATH_PB)/protos/treechange.proto=github.com/anyproto/any-sync/$(P_TREE_CHANGES_PATH_PB))
+	@$(eval P_ACL_RECORDS := M$(P_ACL_RECORDS_PATH_PB)/protos/aclrecord.proto=github.com/Kimenzo/any-sync/$(P_ACL_RECORDS_PATH_PB))
+	@$(eval P_TREE_CHANGES := M$(P_TREE_CHANGES_PATH_PB)/protos/treechange.proto=github.com/Kimenzo/any-sync/$(P_TREE_CHANGES_PATH_PB))
 
 	$(call generate_proto,$(P_ACL_RECORDS_PATH_PB)/protos)
 	$(call generate_proto,$(P_TREE_CHANGES_PATH_PB)/protos)

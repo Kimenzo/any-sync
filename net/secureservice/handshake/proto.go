@@ -6,7 +6,7 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
 )
 
 type ProtoChecker struct {

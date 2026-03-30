@@ -12,7 +12,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/app/ldiff"
 )
 
 func TestDiff_fillRange(t *testing.T) {

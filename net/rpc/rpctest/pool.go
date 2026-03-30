@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/pool"
 )
 
 func NewTestPool() *TestPool {

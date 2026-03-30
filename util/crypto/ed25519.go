@@ -10,8 +10,8 @@ import (
 	"io"
 	"sync"
 
-	"github.com/anyproto/any-sync/util/crypto/cryptoproto"
-	"github.com/anyproto/any-sync/util/strkey"
+	"github.com/Kimenzo/any-sync/util/crypto/cryptoproto"
+	"github.com/Kimenzo/any-sync/util/strkey"
 	"github.com/libp2p/go-libp2p/core/crypto"
 )
 

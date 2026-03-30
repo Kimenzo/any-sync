@@ -8,7 +8,7 @@ import (
 )
 
 func runSyncTest(t *testing.T, f func(*testing.T)) {
-	synctest.Run(func() {
+	synctest.Test(t, func(t *testing.T) {
 		f(t)
 	})
 }

@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_spacestorage/mock_spacestorage.go github.com/anyproto/any-sync/commonspace/spacestorage SpaceStorage
+//go:generate mockgen -destination mock_spacestorage/mock_spacestorage.go github.com/Kimenzo/any-sync/commonspace/spacestorage SpaceStorage
 package spacestorage
 
 import (
@@ -8,15 +8,15 @@ import (
 
 	anystore "github.com/anyproto/any-store"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/headsync/statestorage"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/statestorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
 )
 
 const CName = "common.commonspace.spacestorage"
@@ -175,7 +175,10 @@ func (s *spaceStorage) Run(ctx context.Context) (err error) {
 }
 
 func (s *spaceStorage) Close(ctx context.Context) (err error) {
-	return nil
+	if s.store == nil {
+		return nil
+	}
+	return s.store.Close()
 }
 
 func (s *spaceStorage) Name() (name string) {

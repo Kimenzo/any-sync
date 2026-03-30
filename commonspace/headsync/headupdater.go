@@ -5,7 +5,7 @@ import (
 
 	"github.com/cheggaaa/mb/v3"
 
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
 )
 
 type headUpdater struct {

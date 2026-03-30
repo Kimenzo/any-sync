@@ -2,8 +2,8 @@ package nodeconfstore
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/nodeconf"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"os"

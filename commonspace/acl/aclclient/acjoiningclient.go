@@ -1,17 +1,17 @@
-//go:generate mockgen -destination mock_aclclient/mock_aclclient.go github.com/anyproto/any-sync/commonspace/acl/aclclient AclJoiningClient,AclSpaceClient
+//go:generate mockgen -destination mock_aclclient/mock_aclclient.go github.com/Kimenzo/any-sync/commonspace/acl/aclclient AclJoiningClient,AclSpaceClient
 package aclclient
 
 import (
 	"context"
 	"fmt"
 
-	"github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/node/nodeclient"
+	"github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/node/nodeclient"
 )
 
 const CName = "common.acl.aclclient"

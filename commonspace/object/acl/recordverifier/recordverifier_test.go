@@ -6,10 +6,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/testutil/accounttest"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 type fixture struct {

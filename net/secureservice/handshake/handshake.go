@@ -8,7 +8,7 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
 )
 
 const headerSize = 5 // 1 byte for type + 4 byte for uint32 size

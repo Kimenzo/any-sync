@@ -8,20 +8,20 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/synctree"
-	"github.com/anyproto/any-sync/commonspace/object/treemanager"
-	"github.com/anyproto/any-sync/commonspace/object/treesyncer"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/syncstatus"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/rpc/server"
-	"github.com/anyproto/any-sync/net/streampool"
-	"github.com/anyproto/any-sync/util/periodicsync"
+	"github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/synctree"
+	"github.com/Kimenzo/any-sync/commonspace/object/treemanager"
+	"github.com/Kimenzo/any-sync/commonspace/object/treesyncer"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/syncstatus"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/rpc/server"
+	"github.com/Kimenzo/any-sync/net/streampool"
+	"github.com/Kimenzo/any-sync/util/periodicsync"
 )
 
 func NewTreeSyncer(spaceId string) treesyncer.TreeSyncer {
@@ -163,8 +163,24 @@ func (r *RpcServer) SpacePush(ctx context.Context, request *spacesyncproto.Space
 }
 
 func (r *RpcServer) SpacePull(ctx context.Context, request *spacesyncproto.SpacePullRequest) (*spacesyncproto.SpacePullResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	sp, err := r.getSpace(ctx, request.Id)
+	if err != nil {
+		return nil, err
+	}
+	spaceDesc, err := sp.Description(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return &spacesyncproto.SpacePullResponse{
+		Payload: &spacesyncproto.SpacePayload{
+			SpaceHeader:            spaceDesc.SpaceHeader,
+			AclPayloadId:           spaceDesc.AclId,
+			AclPayload:             spaceDesc.AclPayload,
+			SpaceSettingsPayload:   spaceDesc.SpaceSettingsPayload,
+			SpaceSettingsPayloadId: spaceDesc.SpaceSettingsId,
+		},
+		AclRecords: spaceDesc.AclRecords,
+	}, nil
 }
 
 func (r *RpcServer) ObjectSyncStream(stream spacesyncproto.DRPCSpaceSync_ObjectSyncStreamStream) error {
@@ -203,6 +219,23 @@ func (r *RpcServer) Init(a *app.App) (err error) {
 
 func (r *RpcServer) Name() (name string) {
 	return RpcName
+}
+
+func (r *RpcServer) Run(ctx context.Context) error {
+	return nil
+}
+
+func (r *RpcServer) Close(ctx context.Context) error {
+	r.Lock()
+	defer r.Unlock()
+	var err error
+	for id, sp := range r.spaces {
+		if closeErr := sp.Close(); closeErr != nil && err == nil {
+			err = closeErr
+		}
+		delete(r.spaces, id)
+	}
+	return err
 }
 
 const SpaceProcessName = "spaceprocess"

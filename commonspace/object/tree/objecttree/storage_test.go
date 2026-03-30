@@ -8,9 +8,9 @@ import (
 	anystore "github.com/anyproto/any-store"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func newTestStore(t *testing.T) anystore.DB {

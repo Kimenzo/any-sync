@@ -1,18 +1,18 @@
-//go:generate mockgen -destination=mock/mock_paymentserviceclient2.go -package=mock_paymentserviceclient2 github.com/anyproto/any-sync/paymentservice/paymentserviceclient2 AnyPpClientServiceV2
+//go:generate mockgen -destination=mock/mock_paymentserviceclient2.go -package=mock_paymentserviceclient2 github.com/Kimenzo/any-sync/paymentservice/paymentserviceclient2 AnyPpClientServiceV2
 package paymentserviceclient2
 
 import (
 	"context"
 	"errors"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
-	"github.com/anyproto/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/nodeconf"
 	"go.uber.org/zap"
 
-	pp "github.com/anyproto/any-sync/paymentservice/paymentserviceproto"
+	pp "github.com/Kimenzo/any-sync/paymentservice/paymentserviceproto"
 )
 
 const CName = "any-pp.drpcclient2"

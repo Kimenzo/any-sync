@@ -3,8 +3,8 @@ package syncacl
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/commonspace/object/acl/syncacl/response"
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/syncacl/response"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
 )
 
 type responseCollector struct {

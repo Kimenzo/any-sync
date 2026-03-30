@@ -1,8 +1,8 @@
 package mock_accountservice
 
 import (
-	"github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
 	"go.uber.org/mock/gomock"
 )
 

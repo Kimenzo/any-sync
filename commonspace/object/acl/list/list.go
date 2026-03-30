@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_list/mock_list.go github.com/anyproto/any-sync/commonspace/object/acl/list AclList,Storage
+//go:generate mockgen -destination mock_list/mock_list.go github.com/Kimenzo/any-sync/commonspace/object/acl/list AclList,Storage
 package list
 
 import (
@@ -8,11 +8,11 @@ import (
 	"slices"
 	"sync"
 
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/util/cidutil"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/util/cidutil"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 type IterFunc = func(record *AclRecord) (IsContinue bool)

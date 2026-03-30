@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/nodeconf"
 	"gopkg.in/yaml.v3"
 )
 

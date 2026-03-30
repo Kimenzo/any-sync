@@ -3,7 +3,7 @@ package syncobjectgetter
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
 )
 
 type SyncObject interface {

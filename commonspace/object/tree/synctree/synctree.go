@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_synctree/mock_synctree.go github.com/anyproto/any-sync/commonspace/object/tree/synctree SyncTree,HeadNotifiable,SyncClient,RequestFactory
+//go:generate mockgen -destination mock_synctree/mock_synctree.go github.com/Kimenzo/any-sync/commonspace/object/tree/synctree SyncTree,HeadNotifiable,SyncClient,RequestFactory
 package synctree
 
 import (
@@ -10,18 +10,18 @@ import (
 	anystore "github.com/anyproto/any-store"
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/synctree/updatelistener"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
-	"github.com/anyproto/any-sync/commonspace/syncstatus"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/synctree/updatelistener"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/commonspace/syncstatus"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 var (

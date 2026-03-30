@@ -3,12 +3,12 @@ package settings
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 // objectAuthor resolves the effective author of an object. For child/derived objects

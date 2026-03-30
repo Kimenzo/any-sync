@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_objecttree/mock_objecttree.go github.com/anyproto/any-sync/commonspace/object/tree/objecttree ObjectTree,Storage
+//go:generate mockgen -destination mock_objecttree/mock_objecttree.go github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree ObjectTree,Storage
 package objecttree
 
 import (
@@ -8,14 +8,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/anyproto/any-sync/util/debug"
+	"github.com/Kimenzo/any-sync/util/debug"
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 var (

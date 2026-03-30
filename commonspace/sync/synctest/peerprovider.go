@@ -4,10 +4,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/rpc/server"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/rpc/server"
 )
 
 const PeerName = "net.peerservice"

@@ -7,12 +7,12 @@ import (
 
 	"go.uber.org/mock/gomock"
 
-	"github.com/anyproto/any-sync/commonspace/deletionstate/mock_deletionstate"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage/mock_headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/commonspace/object/treemanager/mock_treemanager"
-	"github.com/anyproto/any-sync/commonspace/spacestorage/mock_spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/deletionstate/mock_deletionstate"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage/mock_headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/treemanager/mock_treemanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage/mock_spacestorage"
 )
 
 func TestDeleter_Delete(t *testing.T) {

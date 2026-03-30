@@ -8,12 +8,12 @@ import (
 
 	anystore "github.com/anyproto/any-store"
 
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 type treeStorage interface {

@@ -2,7 +2,7 @@ package handshake
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
 	"io"
 )
 

@@ -7,11 +7,11 @@ import (
 	"storj.io/drpc/drpcmux"
 	"storj.io/drpc/drpcserver"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc"
-	"github.com/anyproto/any-sync/net/rpc/encoding"
-	"github.com/anyproto/any-sync/net/rpc/server"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc"
+	"github.com/Kimenzo/any-sync/net/rpc/encoding"
+	"github.com/Kimenzo/any-sync/net/rpc/server"
 )
 
 type mockCtrl struct {

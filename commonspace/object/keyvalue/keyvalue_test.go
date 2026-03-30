@@ -15,17 +15,17 @@ import (
 	anystore "github.com/anyproto/any-store"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
-	"github.com/anyproto/any-sync/commonspace/spacepayloads"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacepayloads"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func TestKeyValueService(t *testing.T) {
@@ -305,6 +305,10 @@ func newFixture(t *testing.T, keys *accountdata.AccountKeys, spacePayload spaces
 		defaultStore:  defaultStorage,
 	}
 	require.NoError(t, spacesyncproto.DRPCRegisterSpaceSync(rpcHandler, &testServer{service: service, t: t}))
+	t.Cleanup(func() {
+		require.NoError(t, service.Close(context.Background()))
+		require.NoError(t, anyStore.Close())
+	})
 	return &fixture{
 		keyValueService: service,
 		server:          rpcHandler,

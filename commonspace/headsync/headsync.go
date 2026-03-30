@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_headsync/mock_headsync.go github.com/anyproto/any-sync/commonspace/headsync DiffSyncer
+//go:generate mockgen -destination mock_headsync/mock_headsync.go github.com/Kimenzo/any-sync/commonspace/headsync DiffSyncer
 package headsync
 
 import (
@@ -7,23 +7,23 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/ldiff"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/app/olddiff"
-	"github.com/anyproto/any-sync/commonspace/config"
-	"github.com/anyproto/any-sync/commonspace/credentialprovider"
-	"github.com/anyproto/any-sync/commonspace/deletionstate"
-	"github.com/anyproto/any-sync/commonspace/object/acl/syncacl"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/kvinterfaces"
-	"github.com/anyproto/any-sync/commonspace/object/treesyncer"
-	"github.com/anyproto/any-sync/commonspace/peermanager"
-	"github.com/anyproto/any-sync/commonspace/spacestate"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/util/periodicsync"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/olddiff"
+	"github.com/Kimenzo/any-sync/commonspace/config"
+	"github.com/Kimenzo/any-sync/commonspace/credentialprovider"
+	"github.com/Kimenzo/any-sync/commonspace/deletionstate"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/syncacl"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/kvinterfaces"
+	"github.com/Kimenzo/any-sync/commonspace/object/treesyncer"
+	"github.com/Kimenzo/any-sync/commonspace/peermanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacestate"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/util/periodicsync"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 var log = logger.NewNamed(CName)

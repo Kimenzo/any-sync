@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
 	"sync"
 	"testing"
 	"time"
@@ -14,40 +15,40 @@ import (
 	"go.uber.org/zap"
 	"storj.io/drpc"
 
-	accountService "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/ocache"
-	"github.com/anyproto/any-sync/commonspace/config"
-	"github.com/anyproto/any-sync/commonspace/credentialprovider"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/commonspace/object/treemanager"
-	"github.com/anyproto/any-sync/commonspace/object/treesyncer"
-	"github.com/anyproto/any-sync/commonspace/objecttreebuilder"
-	"github.com/anyproto/any-sync/commonspace/peermanager"
-	"github.com/anyproto/any-sync/commonspace/spacepayloads"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/sync/objectsync/objectmessages"
-	"github.com/anyproto/any-sync/commonspace/sync/synctest"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/coordinator/coordinatorclient"
-	"github.com/anyproto/any-sync/coordinator/coordinatorproto"
-	"github.com/anyproto/any-sync/identityrepo/identityrepoproto"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/streampool"
-	"github.com/anyproto/any-sync/net/streampool/streamhandler"
-	"github.com/anyproto/any-sync/node/nodeclient"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/nodeconf/testconf"
-	"github.com/anyproto/any-sync/testutil/accounttest"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/syncqueues"
+	accountService "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/ocache"
+	"github.com/Kimenzo/any-sync/commonspace/config"
+	"github.com/Kimenzo/any-sync/commonspace/credentialprovider"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/treemanager"
+	"github.com/Kimenzo/any-sync/commonspace/object/treesyncer"
+	"github.com/Kimenzo/any-sync/commonspace/objecttreebuilder"
+	"github.com/Kimenzo/any-sync/commonspace/peermanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacepayloads"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/sync/objectsync/objectmessages"
+	"github.com/Kimenzo/any-sync/commonspace/sync/synctest"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorclient"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
+	"github.com/Kimenzo/any-sync/identityrepo/identityrepoproto"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/streampool"
+	"github.com/Kimenzo/any-sync/net/streampool/streamhandler"
+	"github.com/Kimenzo/any-sync/node/nodeclient"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/nodeconf/testconf"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/syncqueues"
 )
 
 var _ nodeclient.NodeClient = (*mockNodeClient)(nil)
@@ -554,6 +555,7 @@ type spaceFixture struct {
 	spaceService         SpaceService
 	process              *spaceProcess
 	cancelFunc           context.CancelFunc
+	closeOnce            sync.Once
 }
 
 func newFixture(t *testing.T) *spaceFixture {
@@ -593,12 +595,15 @@ func newFixture(t *testing.T) *spaceFixture {
 		fx.cancelFunc()
 	}
 	require.NoError(t, err)
+	t.Cleanup(func() {
+		fx.close()
+	})
 	return fx
 }
 
 func Test(t *testing.T) {
 	fx := newFixture(t)
-	defer fx.app.Close(context.Background())
+	defer fx.close()
 }
 
 func newPeerFixture(t *testing.T, spaceId string, onlyCreate bool, keys *accountdata.AccountKeys, peerPool *synctest.PeerGlobalPool, provider *spaceStorageProvider) *spaceFixture {
@@ -642,7 +647,17 @@ func newPeerFixture(t *testing.T, spaceId string, onlyCreate bool, keys *account
 		fx.cancelFunc()
 	}
 	require.NoError(t, err)
+	t.Cleanup(func() {
+		fx.close()
+	})
 	return fx
+}
+
+func (fx *spaceFixture) close() {
+	fx.closeOnce.Do(func() {
+		fx.cancelFunc()
+		_ = fx.app.Close(context.Background())
+	})
 }
 
 type multiPeerFixture struct {
@@ -651,7 +666,7 @@ type multiPeerFixture struct {
 
 func (m *multiPeerFixture) Close() {
 	for _, fx := range m.peerFixtures {
-		fx.app.Close(context.Background())
+		fx.close()
 	}
 }
 
@@ -701,7 +716,12 @@ func newMultiPeerFixture(t *testing.T, peerNum int, onlyCreate bool) *multiPeerF
 	for i := 0; i < peerNum; i++ {
 		allKeys = append(allKeys, executor.ActualAccounts()[fmt.Sprint(i)].Keys)
 		peerIds = append(peerIds, executor.ActualAccounts()[fmt.Sprint(i)].Keys.PeerId)
-		provider := &spaceStorageProvider{rootPath: t.TempDir()}
+		rootPath, err := os.MkdirTemp("", "multipeer-*")
+		require.NoError(t, err)
+		t.Cleanup(func() {
+			_ = os.RemoveAll(rootPath)
+		})
+		provider := &spaceStorageProvider{rootPath: rootPath}
 		providers = append(providers, provider)
 		spaceStore, err := provider.CreateSpaceStorage(ctx, createSpace)
 		require.NoError(t, err)
@@ -720,6 +740,7 @@ func newMultiPeerFixture(t *testing.T, peerNum int, onlyCreate bool) *multiPeerF
 			}
 			require.NoError(t, err)
 		}
+		require.NoError(t, spaceStore.Close(ctx))
 	}
 	peerPool := synctest.NewPeerGlobalPool(peerIds)
 	peerPool.MakePeers()

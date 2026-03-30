@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_deletionstate/mock_deletionstate.go github.com/anyproto/any-sync/commonspace/deletionstate ObjectDeletionState
+//go:generate mockgen -destination mock_deletionstate/mock_deletionstate.go github.com/Kimenzo/any-sync/commonspace/deletionstate ObjectDeletionState
 package deletionstate
 
 import (
@@ -8,10 +8,10 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
 )
 
 var log = logger.NewNamed(CName)

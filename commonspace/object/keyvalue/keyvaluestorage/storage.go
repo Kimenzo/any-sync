@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_keyvaluestorage/mock_keyvaluestorage.go github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage Storage
+//go:generate mockgen -destination mock_keyvaluestorage/mock_keyvaluestorage.go github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage Storage
 package keyvaluestorage
 
 import (
@@ -11,16 +11,16 @@ import (
 	anystore "github.com/anyproto/any-store"
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage/syncstorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage/syncstorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 var log = logger.NewNamed("common.keyvalue.keyvaluestorage")

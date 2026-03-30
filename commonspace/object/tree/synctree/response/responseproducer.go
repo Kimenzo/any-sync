@@ -1,8 +1,8 @@
-//go:generate mockgen -destination mock_response/mock_response.go github.com/anyproto/any-sync/commonspace/object/tree/synctree/response ResponseProducer
+//go:generate mockgen -destination mock_response/mock_response.go github.com/Kimenzo/any-sync/commonspace/object/tree/synctree/response ResponseProducer
 package response
 
 import (
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
 )
 
 type ResponseProducer interface {

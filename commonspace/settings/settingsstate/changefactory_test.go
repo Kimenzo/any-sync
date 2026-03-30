@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 func TestChangeFactory_CreateObjectDeleteChange(t *testing.T) {

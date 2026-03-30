@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_peer/mock_peer.go github.com/anyproto/any-sync/net/peer Peer
+//go:generate mockgen -destination mock_peer/mock_peer.go github.com/Kimenzo/any-sync/net/peer Peer
 package peer
 
 import (
@@ -17,14 +17,14 @@ import (
 	"storj.io/drpc/drpcstream"
 	"storj.io/drpc/drpcwire"
 
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/app/ocache"
-	"github.com/anyproto/any-sync/net/connutil"
-	"github.com/anyproto/any-sync/net/rpc"
-	"github.com/anyproto/any-sync/net/rpc/encoding"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
-	"github.com/anyproto/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/ocache"
+	"github.com/Kimenzo/any-sync/net/connutil"
+	"github.com/Kimenzo/any-sync/net/rpc"
+	"github.com/Kimenzo/any-sync/net/rpc/encoding"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/net/transport"
 )
 
 var log = logger.NewNamed("common.net.peer")

@@ -1,12 +1,12 @@
-//go:generate mockgen -destination mock_debugstat/mock_debugstat.go github.com/anyproto/any-sync/app/debugstat StatService
+//go:generate mockgen -destination mock_debugstat/mock_debugstat.go github.com/Kimenzo/any-sync/app/debugstat StatService
 package debugstat
 
 import (
 	"context"
 	"sync"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
 )
 
 var log = logger.NewNamed(CName)

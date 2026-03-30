@@ -5,7 +5,7 @@ import (
 
 	"github.com/libp2p/go-libp2p/core/peer"
 
-	"github.com/anyproto/any-sync/util/strkey"
+	"github.com/Kimenzo/any-sync/util/strkey"
 )
 
 func EncodeKeyToString[T Key](key T) (str string, err error) {

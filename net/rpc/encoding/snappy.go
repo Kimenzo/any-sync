@@ -8,7 +8,7 @@ import (
 	"github.com/golang/snappy"
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/protobuf"
+	"github.com/Kimenzo/any-sync/protobuf"
 )
 
 var (

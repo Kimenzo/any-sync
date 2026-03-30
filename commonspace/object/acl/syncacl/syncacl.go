@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_syncacl/mock_syncacl.go github.com/anyproto/any-sync/commonspace/object/acl/syncacl SyncClient,SyncAcl
+//go:generate mockgen -destination mock_syncacl/mock_syncacl.go github.com/Kimenzo/any-sync/commonspace/object/acl/syncacl SyncClient,SyncAcl
 package syncacl
 
 import (
@@ -7,18 +7,18 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/commonspace/object/acl/syncacl/headupdater"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/sync"
-	"github.com/anyproto/any-sync/commonspace/sync/objectsync/objectmessages"
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/syncacl/headupdater"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/sync"
+	"github.com/Kimenzo/any-sync/commonspace/sync/objectsync/objectmessages"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/net/peer"
 )
 
 const CName = "common.acl.syncacl"

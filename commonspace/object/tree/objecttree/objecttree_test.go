@@ -5,24 +5,24 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
 	"path/filepath"
 	"testing"
 	"time"
 
 	anystore "github.com/anyproto/any-store"
 	"golang.org/x/exp/slices"
-	"golang.org/x/sys/unix"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treechangeproto"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treechangeproto"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 var ctx = context.Background()
@@ -135,7 +135,8 @@ func createNamedStore(ctx context.Context, t *testing.T, name string) anystore.D
 	t.Cleanup(func() {
 		err := db.Close()
 		require.NoError(t, err)
-		unix.Rmdir(path)
+		err = os.Remove(path)
+		require.NoError(t, err)
 	})
 	return TestStore{
 		DB:   db,

@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/logger"
 )
 
 func TestPeriodicSync_Run(t *testing.T) {

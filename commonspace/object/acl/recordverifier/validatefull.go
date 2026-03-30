@@ -1,8 +1,8 @@
 package recordverifier
 
 import (
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
 )
 
 type ValidateFull struct{}

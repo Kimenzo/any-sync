@@ -2,30 +2,32 @@ package commonspace
 
 import (
 	"context"
+	"os"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/require"
 	"go.uber.org/mock/gomock"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/config"
-	"github.com/anyproto/any-sync/commonspace/credentialprovider"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/commonspace/object/acl/recordverifier"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
-	"github.com/anyproto/any-sync/commonspace/object/treemanager"
-	"github.com/anyproto/any-sync/commonspace/spacepayloads"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/syncstatus"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/streampool"
-	"github.com/anyproto/any-sync/nodeconf/testconf"
-	"github.com/anyproto/any-sync/testutil/accounttest"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/syncqueues"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/config"
+	"github.com/Kimenzo/any-sync/commonspace/credentialprovider"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/recordverifier"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/commonspace/object/treemanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacepayloads"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/syncstatus"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/streampool"
+	"github.com/Kimenzo/any-sync/nodeconf/testconf"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/syncqueues"
 )
 
 func TestSpaceService_SpacePull(t *testing.T) {
@@ -97,6 +99,7 @@ func TestSpaceService_SpacePull(t *testing.T) {
 type spacePullFixture struct {
 	*spaceService
 	app             *app.App
+	cancelFunc      context.CancelFunc
 	ctrl            *gomock.Controller
 	ts              *rpctest.TestServer
 	tp              *rpctest.TestPool
@@ -108,17 +111,21 @@ type spacePullFixture struct {
 }
 
 func newSpacePullFixture(t *testing.T) (fx *spacePullFixture) {
+	runCtx, cancel := context.WithTimeout(context.Background(), time.Second)
+	tmpDir, err := os.MkdirTemp("", "spacepull-*")
+	require.NoError(t, err)
 	ts := rpctest.NewTestServer()
 	fx = &spacePullFixture{
 		spaceService:    New().(*spaceService),
 		ctrl:            gomock.NewController(t),
 		app:             new(app.App),
+		cancelFunc:      cancel,
 		ts:              ts,
 		tp:              rpctest.NewTestPool(),
-		tmpDir:          t.TempDir(),
+		tmpDir:          tmpDir,
 		account:         &accounttest.AccountTestService{},
 		configService:   &testconf.StubConf{},
-		storage:         &spaceStorageProvider{rootPath: t.TempDir()},
+		storage:         &spaceStorageProvider{rootPath: tmpDir},
 		managerProvider: &mockPeerManagerProvider{},
 	}
 
@@ -141,12 +148,17 @@ func newSpacePullFixture(t *testing.T) (fx *spacePullFixture) {
 		Register(fx.configService)
 
 	require.NoError(t, spacesyncproto.DRPCRegisterSpaceSync(ts, &testSpaceSyncServer{spaceService: fx.spaceService}))
-	require.NoError(t, fx.app.Start(ctx))
+	require.NoError(t, fx.app.Start(runCtx))
+	t.Cleanup(func() {
+		_ = os.RemoveAll(tmpDir)
+	})
 
 	return fx
 }
 
 func (fx *spacePullFixture) Finish(t *testing.T) {
+	fx.cancelFunc()
+	require.NoError(t, fx.app.Close(context.Background()))
 	fx.ctrl.Finish()
 }
 

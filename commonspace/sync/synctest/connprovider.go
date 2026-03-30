@@ -3,8 +3,8 @@ package synctest
 import (
 	"sync"
 
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/transport"
 )
 
 type ConnProvider struct {

@@ -5,8 +5,8 @@ import (
 
 	"github.com/anyproto/any-store/anyenc"
 
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 var ErrInvalidSignature = errors.New("invalid signature")

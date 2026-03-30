@@ -6,10 +6,10 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	accountService "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/nodeconf"
+	accountService "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/nodeconf"
 )
 
 const CName = "common.util.syncqueues"

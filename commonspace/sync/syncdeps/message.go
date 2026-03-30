@@ -1,6 +1,6 @@
 package syncdeps
 
-import "github.com/anyproto/any-sync/commonspace/spacesyncproto"
+import "github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 
 type Message interface {
 	ObjectId() string

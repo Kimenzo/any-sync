@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/anyproto/any-sync/commonspace/object/acl/aclrecordproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/aclrecordproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

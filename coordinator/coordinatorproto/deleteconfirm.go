@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"time"
 
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func PrepareDeleteConfirmation(privKey crypto.PrivKey, spaceId, peerId, networkId string) (signed *DeletionConfirmPayloadWithSignature, err error) {

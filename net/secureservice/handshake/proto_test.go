@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
 )
 
 type protoRes struct {

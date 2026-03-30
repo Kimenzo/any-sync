@@ -13,7 +13,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/logger"
 )
 
 var (
@@ -388,7 +388,7 @@ func (app *App) AnySyncVersion() string {
 		info, ok := debug.ReadBuildInfo()
 		if ok {
 			for _, mod := range info.Deps {
-				if mod.Path == "github.com/anyproto/any-sync" {
+				if mod.Path == "github.com/Kimenzo/any-sync" {
 					app.anySyncVersion = mod.Version
 					break
 				}

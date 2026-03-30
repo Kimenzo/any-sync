@@ -2,7 +2,7 @@ package streampool
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/peer"
 )
 
 type streamCtxKey uint

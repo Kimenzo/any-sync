@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_peermanager/mock_peermanager.go github.com/anyproto/any-sync/commonspace/peermanager PeerManager
+//go:generate mockgen -destination mock_peermanager/mock_peermanager.go github.com/Kimenzo/any-sync/commonspace/peermanager PeerManager
 package peermanager
 
 import (
@@ -6,8 +6,8 @@ import (
 
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/peer"
 )
 
 const (

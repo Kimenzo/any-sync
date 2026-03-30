@@ -2,7 +2,7 @@ package fileservice
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/commonfile/fileblockstore"
+	"github.com/Kimenzo/any-sync/commonfile/fileblockstore"
 	"github.com/ipfs/boxo/blockservice"
 	blockstore "github.com/ipfs/boxo/blockstore"
 	exchange "github.com/ipfs/boxo/exchange"

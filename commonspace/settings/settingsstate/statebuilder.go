@@ -1,8 +1,8 @@
 package settingsstate
 
 import (
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 type StateBuilder interface {

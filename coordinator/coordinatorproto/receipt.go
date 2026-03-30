@@ -3,8 +3,8 @@ package coordinatorproto
 import (
 	"bytes"
 	"errors"
-	"github.com/anyproto/any-sync/util/crypto"
-	"github.com/anyproto/any-sync/util/strkey"
+	"github.com/Kimenzo/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/strkey"
 	"time"
 )
 

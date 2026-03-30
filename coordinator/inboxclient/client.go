@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_inboxclient/mock_inboxclient.go github.com/anyproto/any-sync/coordinator/inboxclient InboxClient
+//go:generate mockgen -destination mock_inboxclient/mock_inboxclient.go github.com/Kimenzo/any-sync/coordinator/inboxclient InboxClient
 package inboxclient
 
 import (
@@ -8,16 +8,16 @@ import (
 
 	"storj.io/drpc"
 
-	commonaccount "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/coordinator/coordinatorproto"
-	"github.com/anyproto/any-sync/coordinator/subscribeclient"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/util/crypto"
+	commonaccount "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
+	"github.com/Kimenzo/any-sync/coordinator/subscribeclient"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/util/crypto"
 	"go.uber.org/zap"
 )
 

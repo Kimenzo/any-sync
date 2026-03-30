@@ -3,8 +3,8 @@ package webtransport
 import (
 	"net"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/transport"
 )
 
 const CName = "net.transport.webtransport"

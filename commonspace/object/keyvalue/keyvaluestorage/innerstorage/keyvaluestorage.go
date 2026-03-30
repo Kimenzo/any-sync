@@ -10,8 +10,8 @@ import (
 	"github.com/anyproto/any-store/anyenc"
 	"github.com/anyproto/any-store/query"
 
-	"github.com/anyproto/any-sync/app/ldiff"
-	"github.com/anyproto/any-sync/commonspace/headsync/headstorage"
+	"github.com/Kimenzo/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
 )
 
 var (

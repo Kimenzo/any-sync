@@ -13,12 +13,12 @@ import (
 	"golang.org/x/net/context"
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/debugstat"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/rpc/rpctest"
-	"github.com/anyproto/any-sync/net/streampool/streamhandler"
-	"github.com/anyproto/any-sync/net/streampool/testservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/debugstat"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/rpc/rpctest"
+	"github.com/Kimenzo/any-sync/net/streampool/streamhandler"
+	"github.com/Kimenzo/any-sync/net/streampool/testservice"
 )
 
 var ctx = context.Background()

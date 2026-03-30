@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"fmt"
 
-	"github.com/anyproto/any-sync/commonspace/object/acl/aclrecordproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/aclrecordproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func (st *AclState) setOneToOneAcl(rootId string, root *aclrecordproto.AclRoot) error {

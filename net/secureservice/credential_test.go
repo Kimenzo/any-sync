@@ -6,9 +6,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
-	"github.com/anyproto/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
 )
 
 func TestPeerSignVerifier_CheckCredential(t *testing.T) {

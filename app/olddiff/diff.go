@@ -12,8 +12,8 @@ import (
 	"github.com/huandu/skiplist"
 	"github.com/zeebo/blake3"
 
-	"github.com/anyproto/any-sync/app/ldiff"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 // New creates precalculated Diff container

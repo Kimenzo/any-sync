@@ -1,7 +1,7 @@
 package objecttree
 
 import (
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 // SignableChangeContent is a payload to be passed when we are creating change

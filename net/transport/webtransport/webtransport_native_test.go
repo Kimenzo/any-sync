@@ -25,14 +25,14 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/mock/gomock"
 
-	"github.com/anyproto/any-sync/app"
-	netpeer "github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/secureservice"
-	"github.com/anyproto/any-sync/net/transport"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/nodeconf/mock_nodeconf"
-	"github.com/anyproto/any-sync/testutil/accounttest"
-	"github.com/anyproto/any-sync/testutil/testnodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	netpeer "github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/secureservice"
+	"github.com/Kimenzo/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/nodeconf/mock_nodeconf"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/testutil/testnodeconf"
 )
 
 var testCtx = context.Background()

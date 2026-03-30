@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_subscribeclient/mock_subscribeclient.go github.com/anyproto/any-sync/coordinator/subscribeclient SubscribeClientService
+//go:generate mockgen -destination mock_subscribeclient/mock_subscribeclient.go github.com/Kimenzo/any-sync/coordinator/subscribeclient SubscribeClientService
 package subscribeclient
 
 import (
@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/coordinator/coordinatorproto"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
-	"github.com/anyproto/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/nodeconf"
 	"go.uber.org/zap"
 )
 

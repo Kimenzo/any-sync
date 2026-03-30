@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_acl/mock_acl.go github.com/anyproto/any-sync/acl AclService
+//go:generate mockgen -destination mock_acl/mock_acl.go github.com/Kimenzo/any-sync/acl AclService
 package acl
 
 import (
@@ -8,15 +8,15 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 
-	commonaccount "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/app/ocache"
-	"github.com/anyproto/any-sync/commonspace/object/acl/list"
-	"github.com/anyproto/any-sync/consensus/consensusclient"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
-	"github.com/anyproto/any-sync/metric"
-	"github.com/anyproto/any-sync/util/crypto"
+	commonaccount "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/ocache"
+	"github.com/Kimenzo/any-sync/commonspace/object/acl/list"
+	"github.com/Kimenzo/any-sync/consensus/consensusclient"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/metric"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 const CName = "coordinator.acl"

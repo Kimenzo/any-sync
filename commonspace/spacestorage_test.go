@@ -8,10 +8,10 @@ import (
 	anystore "github.com/anyproto/any-store"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/commonspace/spacepayloads"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/commonspace/spacepayloads"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func newStorageCreatePayload(t *testing.T) spacestorage.SpaceStorageCreatePayload {
@@ -44,6 +44,9 @@ func TestCreateSpaceStorageFailed_EmptyStorage(t *testing.T) {
 	payload := newStorageCreatePayload(t)
 	store, err := anystore.Open(ctx, filepath.Join(t.TempDir(), "store.db"), nil)
 	require.NoError(t, err)
+	defer func() {
+		require.NoError(t, store.Close())
+	}()
 	payload.SpaceSettingsWithId.RawChange = nil
 	_, err = spacestorage.Create(ctx, store, payload)
 	require.Error(t, err)

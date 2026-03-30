@@ -10,8 +10,8 @@ import (
 	wt "github.com/quic-go/webtransport-go"
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/transport"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/transport"
 )
 
 // session is an interface over *webtransport.Session for testability.

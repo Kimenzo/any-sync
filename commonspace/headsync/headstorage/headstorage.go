@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_headstorage/mock_headstorage.go github.com/anyproto/any-sync/commonspace/headsync/headstorage HeadStorage
+//go:generate mockgen -destination mock_headstorage/mock_headstorage.go github.com/Kimenzo/any-sync/commonspace/headsync/headstorage HeadStorage
 package headstorage
 
 import (
@@ -9,7 +9,7 @@ import (
 	"github.com/anyproto/any-store/query"
 	"golang.org/x/net/context"
 
-	"github.com/anyproto/any-sync/util/storeutil"
+	"github.com/Kimenzo/any-sync/util/storeutil"
 )
 
 const (

@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_syncdeps/mock_syncdeps.go github.com/anyproto/any-sync/commonspace/sync/syncdeps ObjectSyncHandler,RequestSender,ResponseCollector
+//go:generate mockgen -destination mock_syncdeps/mock_syncdeps.go github.com/Kimenzo/any-sync/commonspace/sync/syncdeps ObjectSyncHandler,RequestSender,ResponseCollector
 package syncdeps
 
 import (
@@ -7,8 +7,8 @@ import (
 
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/syncstatus"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/syncstatus"
 )
 
 const CName = "common.sync.syncdeps"

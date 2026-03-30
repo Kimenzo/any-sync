@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/mock/gomock"
 
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto/mock_spacesyncproto"
-	"github.com/anyproto/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto/mock_spacesyncproto"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
 )
 
 var ctx = context.Background()

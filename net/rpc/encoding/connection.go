@@ -7,7 +7,7 @@ import (
 	"storj.io/drpc"
 	"storj.io/drpc/drpcwire"
 
-	"github.com/anyproto/any-sync/protobuf"
+	"github.com/Kimenzo/any-sync/protobuf"
 )
 
 var ErrNotAProtoMessage = errors.New("encoding: not a proto message")

@@ -9,7 +9,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/logger"
 )
 
 var (

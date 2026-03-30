@@ -1,8 +1,8 @@
 package synctest
 
 import (
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/net/streampool"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/net/streampool"
 )
 
 type Config struct {

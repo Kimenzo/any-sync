@@ -3,9 +3,9 @@ package synctree
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/commonspace/sync"
-	"github.com/anyproto/any-sync/commonspace/sync/objectsync/objectmessages"
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/commonspace/sync"
+	"github.com/Kimenzo/any-sync/commonspace/sync/objectsync/objectmessages"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
 )
 
 type SyncClient interface {

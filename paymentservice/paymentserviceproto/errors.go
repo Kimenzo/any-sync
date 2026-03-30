@@ -3,7 +3,7 @@ package paymentserviceproto
 import (
 	"errors"
 
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
 )
 
 var (

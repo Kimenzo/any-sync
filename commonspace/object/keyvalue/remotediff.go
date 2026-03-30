@@ -3,8 +3,8 @@ package keyvalue
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/app/ldiff"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 type Client interface {

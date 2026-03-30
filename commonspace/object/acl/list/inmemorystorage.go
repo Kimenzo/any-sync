@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/anyproto/any-sync/consensus/consensusproto"
+	"github.com/Kimenzo/any-sync/consensus/consensusproto"
 )
 
 type inMemoryStorage struct {

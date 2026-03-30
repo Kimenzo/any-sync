@@ -14,17 +14,17 @@ import (
 	"go.uber.org/mock/gomock"
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/peermanager"
-	"github.com/anyproto/any-sync/commonspace/peermanager/mock_peermanager"
-	"github.com/anyproto/any-sync/commonspace/spacestate"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/sync/syncdeps"
-	"github.com/anyproto/any-sync/nodeconf"
-	"github.com/anyproto/any-sync/nodeconf/mock_nodeconf"
-	"github.com/anyproto/any-sync/testutil/accounttest"
-	"github.com/anyproto/any-sync/testutil/anymock"
-	"github.com/anyproto/any-sync/util/syncqueues"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/peermanager"
+	"github.com/Kimenzo/any-sync/commonspace/peermanager/mock_peermanager"
+	"github.com/Kimenzo/any-sync/commonspace/spacestate"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/sync/syncdeps"
+	"github.com/Kimenzo/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/nodeconf/mock_nodeconf"
+	"github.com/Kimenzo/any-sync/testutil/accounttest"
+	"github.com/Kimenzo/any-sync/testutil/anymock"
+	"github.com/Kimenzo/any-sync/util/syncqueues"
 )
 
 var ctx = context.Background()
@@ -342,7 +342,7 @@ type testResponse struct {
 }
 
 func (t *testResponse) ProtoReflect() protoreflect.Message {
-	panic("implement me")
+	return nil
 }
 
 func (t *testResponse) Reset() {

@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_nodeconf/mock_nodeconf.go github.com/anyproto/any-sync/nodeconf Service
+//go:generate mockgen -destination mock_nodeconf/mock_nodeconf.go github.com/Kimenzo/any-sync/nodeconf Service
 package nodeconf
 
 import (
@@ -9,12 +9,12 @@ import (
 	"github.com/anyproto/go-chash"
 	"go.uber.org/zap"
 
-	commonaccount "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/net"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
-	"github.com/anyproto/any-sync/util/periodicsync"
+	commonaccount "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/net"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/util/periodicsync"
 )
 
 const CName = "common.nodeconf"

@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_kvinterfaces/mock_kvinterfaces.go github.com/anyproto/any-sync/commonspace/object/keyvalue/kvinterfaces KeyValueService
+//go:generate mockgen -destination mock_kvinterfaces/mock_kvinterfaces.go github.com/Kimenzo/any-sync/commonspace/object/keyvalue/kvinterfaces KeyValueService
 package kvinterfaces
 
 import (
@@ -6,10 +6,10 @@ import (
 
 	"storj.io/drpc"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/net/peer"
 )
 
 const CName = "common.object.keyvalue"

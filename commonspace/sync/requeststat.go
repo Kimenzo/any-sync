@@ -5,8 +5,8 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/app/debugstat"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/app/debugstat"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 type requestStat struct {

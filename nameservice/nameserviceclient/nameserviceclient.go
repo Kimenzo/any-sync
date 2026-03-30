@@ -1,18 +1,18 @@
-//go:generate mockgen -destination=mock/mock_nameserviceclient.go -package=mock_nameserviceclient github.com/anyproto/any-sync/nameservice/nameserviceclient AnyNsClientService
+//go:generate mockgen -destination=mock/mock_nameserviceclient.go -package=mock_nameserviceclient github.com/Kimenzo/any-sync/nameservice/nameserviceclient AnyNsClientService
 package nameserviceclient
 
 import (
 	"context"
 	"errors"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/net/pool"
-	"github.com/anyproto/any-sync/net/rpc/rpcerr"
-	"github.com/anyproto/any-sync/nodeconf"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/net/pool"
+	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
+	"github.com/Kimenzo/any-sync/nodeconf"
 	"go.uber.org/zap"
 
-	nsp "github.com/anyproto/any-sync/nameservice/nameserviceproto"
+	nsp "github.com/Kimenzo/any-sync/nameservice/nameserviceproto"
 )
 
 const CName = "nameservice.nameserviceclient"

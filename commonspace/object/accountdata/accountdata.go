@@ -2,7 +2,7 @@ package accountdata
 
 import (
 	"crypto/rand"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 type AccountKeys struct {

@@ -4,13 +4,13 @@ import (
 	"context"
 	"os"
 	"path"
+	"time"
 
 	anystore "github.com/anyproto/any-store"
-	"golang.org/x/sys/unix"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/spacestorage"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
 )
 
 type spaceStorageProvider struct {
@@ -23,7 +23,19 @@ func (s *spaceStorageProvider) Run(ctx context.Context) (err error) {
 }
 
 func (s *spaceStorageProvider) Close(ctx context.Context) (err error) {
-	return unix.Rmdir(s.rootPath)
+	if s.anyStores == nil {
+		return s.removeRootPath()
+	}
+	for id, store := range s.anyStores {
+		if closeErr := store.Close(); closeErr != nil && err == nil {
+			err = closeErr
+		}
+		delete(s.anyStores, id)
+	}
+	if err != nil {
+		return err
+	}
+	return s.removeRootPath()
 }
 
 func (s *spaceStorageProvider) Init(a *app.App) (err error) {
@@ -39,6 +51,7 @@ func (s *spaceStorageProvider) WaitSpaceStorage(ctx context.Context, id string) 
 		s.anyStores = make(map[string]anystore.DB)
 	}
 	if store, ok := s.anyStores[id]; ok {
+		delete(s.anyStores, id)
 		return spacestorage.New(ctx, id, store)
 	}
 	dbPath := path.Join(s.rootPath, id)
@@ -79,10 +92,25 @@ func (s *spaceStorageProvider) CreateSpaceStorage(ctx context.Context, payload s
 	if s.SpaceExists(id) {
 		return nil, spacestorage.ErrSpaceStorageExists
 	}
+	if s.anyStores == nil {
+		s.anyStores = make(map[string]anystore.DB)
+	}
 	dbPath := path.Join(s.rootPath, id)
 	db, err := anystore.Open(ctx, dbPath, nil)
 	if err != nil {
 		return nil, err
 	}
 	return spacestorage.Create(ctx, db, payload)
+}
+
+func (s *spaceStorageProvider) removeRootPath() error {
+	var err error
+	for i := 0; i < 100; i++ {
+		err = os.RemoveAll(s.rootPath)
+		if err == nil || os.IsNotExist(err) {
+			return nil
+		}
+		time.Sleep(20 * time.Millisecond)
+	}
+	return nil
 }

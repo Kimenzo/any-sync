@@ -4,12 +4,12 @@ import (
 	"context"
 	"net"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/app/logger"
-	"github.com/anyproto/any-sync/metric"
-	"github.com/anyproto/any-sync/net/rpc"
-	"github.com/anyproto/any-sync/net/rpc/encoding"
-	"github.com/anyproto/any-sync/net/rpc/limiter"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/metric"
+	"github.com/Kimenzo/any-sync/net/rpc"
+	"github.com/Kimenzo/any-sync/net/rpc/encoding"
+	"github.com/Kimenzo/any-sync/net/rpc/limiter"
 
 	"go.uber.org/zap"
 	"storj.io/drpc"

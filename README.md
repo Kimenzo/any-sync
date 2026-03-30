@@ -16,7 +16,7 @@ Thanks to its local-first design, `any-sync` achieves better-than-cloud performa
 
 `any-sync` enables developers to build private, decentralized alternatives to apps like Telegram, Discord, Notion, or even health-focused tools like Strava and Oura—without centralized infrastructure.
 
-Paired with [`any-store`](https://github.com/anyproto/any-store), it provides a local-first foundation for intelligent apps, including those using LLMs. Developers work with a local object store, while sync, communication, and scaling are handled seamlessly by the protocol—offering privacy, offline support, and strong performance with minimal complexity.
+Paired with [`any-store`](https://github.com/Kimenzo/any-store), it provides a local-first foundation for intelligent apps, including those using LLMs. Developers work with a local object store, while sync, communication, and scaling are handled seamlessly by the protocol—offering privacy, offline support, and strong performance with minimal complexity.
 
 ## Key Features
 
@@ -51,21 +51,21 @@ Plese read the [overview](https://sync.any.org) of protocol entities and design.
 ## Implementation
 
 You can find the various parts of the protocol implemented in Go in the following repositories:
-- [`any-sync-node`](https://github.com/anyproto/any-sync-node) — implementation of a sync node responsible for storing spaces and objects.
-- [`any-sync-filenode`](https://github.com/anyproto/any-sync-filenode) — implementation of a file node responsible for storing files.
-- [`any-sync-consensusnode`](https://github.com/anyproto/any-sync-consensusnode) — implementation of a consensus node responsible for ACL changes monitoring and validation.
-- [`any-sync-coordinator`](https://github.com/anyproto/any-sync-coordinator) — implementation of a coordinator node responsible for network configuration management.
+- [`any-sync-node`](https://github.com/Kimenzo/any-sync-node) — implementation of a sync node responsible for storing spaces and objects.
+- [`any-sync-filenode`](https://github.com/Kimenzo/any-sync-filenode) — implementation of a file node responsible for storing files.
+- [`any-sync-consensusnode`](https://github.com/Kimenzo/any-sync-consensusnode) — implementation of a consensus node responsible for ACL changes monitoring and validation.
+- [`any-sync-coordinator`](https://github.com/Kimenzo/any-sync-coordinator) — implementation of a coordinator node responsible for network configuration management.
 
 ## Contribution
 Thank you for your desire to develop Anytype together!
 
-❤️ This project and everyone involved in it is governed by the [Code of Conduct](https://github.com/anyproto/.github/blob/main/docs/CODE_OF_CONDUCT.md).
+❤️ This project and everyone involved in it is governed by the [Code of Conduct](https://github.com/Kimenzo/.github/blob/main/docs/CODE_OF_CONDUCT.md).
 
-🧑‍💻 Check out our [contributing guide](https://github.com/anyproto/.github/blob/main/docs/CONTRIBUTING.md) to learn about asking questions, creating issues, or submitting pull requests.
+🧑‍💻 Check out our [contributing guide](https://github.com/Kimenzo/.github/blob/main/docs/CONTRIBUTING.md) to learn about asking questions, creating issues, or submitting pull requests.
 
-🫢 For security findings, please email [security@anytype.io](mailto:security@anytype.io) and refer to our [security guide](https://github.com/anyproto/.github/blob/main/docs/SECURITY.md) for more information.
+🫢 For security findings, please email [security@kimenzo.dev](mailto:security@kimenzo.dev) and refer to our [security guide](https://github.com/Kimenzo/.github/blob/main/docs/SECURITY.md) for more information.
 
-🤝 Follow us on [Github](https://github.com/anyproto) and join the [Contributors Community](https://github.com/orgs/anyproto/discussions).
+🤝 Follow us on [Github](https://github.com/Kimenzo) and join the [Contributors Community](https://github.com/orgs/Kimenzo/discussions).
 
 ---
 Made by Any — a Swiss association 🇨🇭

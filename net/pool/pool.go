@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_pool/mock_pool.go github.com/anyproto/any-sync/net/pool Pool,Service
+//go:generate mockgen -destination mock_pool/mock_pool.go github.com/Kimenzo/any-sync/net/pool Pool,Service
 package pool
 
 import (
@@ -8,11 +8,11 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/debugstat"
-	"github.com/anyproto/any-sync/app/ocache"
-	"github.com/anyproto/any-sync/net"
-	"github.com/anyproto/any-sync/net/peer"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/app/debugstat"
+	"github.com/Kimenzo/any-sync/app/ocache"
+	"github.com/Kimenzo/any-sync/net"
+	"github.com/Kimenzo/any-sync/net/peer"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
 )
 
 // Pool creates and caches outgoing connection

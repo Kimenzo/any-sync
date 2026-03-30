@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/anyproto/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
-	"github.com/anyproto/any-sync/commonspace/sync"
-	"github.com/anyproto/any-sync/commonspace/sync/objectsync/objectmessages"
+	"github.com/Kimenzo/any-sync/commonspace/object/keyvalue/keyvaluestorage/innerstorage"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/commonspace/sync"
+	"github.com/Kimenzo/any-sync/commonspace/sync/objectsync/objectmessages"
 )
 
 type innerUpdate struct {

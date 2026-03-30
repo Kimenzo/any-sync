@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"github.com/anyproto/any-sync/util/slice"
+	"github.com/Kimenzo/any-sync/util/slice"
 )
 
 type LogFormat int

@@ -6,10 +6,10 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/exp/slices"
 
-	"github.com/anyproto/any-sync/commonspace/object/accountdata"
-	"github.com/anyproto/any-sync/net/secureservice/handshake"
-	"github.com/anyproto/any-sync/net/secureservice/handshake/handshakeproto"
-	"github.com/anyproto/any-sync/util/crypto"
+	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake"
+	"github.com/Kimenzo/any-sync/net/secureservice/handshake/handshakeproto"
+	"github.com/Kimenzo/any-sync/util/crypto"
 )
 
 func newNoVerifyChecker(protoVersion uint32, compatibleProtoVersions []uint32, clientVersion string) handshake.CredentialChecker {

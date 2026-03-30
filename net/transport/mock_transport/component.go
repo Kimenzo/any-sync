@@ -1,7 +1,7 @@
 package mock_transport
 
 import (
-	"github.com/anyproto/any-sync/app"
+	"github.com/Kimenzo/any-sync/app"
 	"go.uber.org/mock/gomock"
 )
 

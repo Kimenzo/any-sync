@@ -11,7 +11,7 @@ import (
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcutil/hdkeychain"
 
-	"github.com/anyproto/any-sync/util/ethereum/accounts"
+	"github.com/Kimenzo/any-sync/util/ethereum/accounts"
 )
 
 var (

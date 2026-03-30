@@ -1,4 +1,4 @@
-//go:generate mockgen -destination mock_periodicsync/mock_periodicsync.go github.com/anyproto/any-sync/util/periodicsync PeriodicSync
+//go:generate mockgen -destination mock_periodicsync/mock_periodicsync.go github.com/Kimenzo/any-sync/util/periodicsync PeriodicSync
 package periodicsync
 
 import (
@@ -8,7 +8,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/anyproto/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/app/logger"
 )
 
 type PeriodicSync interface {

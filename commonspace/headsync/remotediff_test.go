@@ -9,9 +9,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/anyproto/any-sync/app/ldiff"
-	"github.com/anyproto/any-sync/app/olddiff"
-	"github.com/anyproto/any-sync/commonspace/spacesyncproto"
+	"github.com/Kimenzo/any-sync/app/ldiff"
+	"github.com/Kimenzo/any-sync/app/olddiff"
+	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 )
 
 func benchmarkDifferentDiffs(t *testing.T, diffFactory func() ldiff.Diff, headLength int) {

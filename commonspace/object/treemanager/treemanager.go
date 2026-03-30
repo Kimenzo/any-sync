@@ -1,12 +1,12 @@
-//go:generate mockgen -destination mock_treemanager/mock_treemanager.go github.com/anyproto/any-sync/commonspace/object/treemanager TreeManager
+//go:generate mockgen -destination mock_treemanager/mock_treemanager.go github.com/Kimenzo/any-sync/commonspace/object/treemanager TreeManager
 package treemanager
 
 import (
 	"context"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
-	"github.com/anyproto/any-sync/commonspace/object/tree/treestorage"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/treestorage"
 )
 
 const CName = "common.object.treemanager"

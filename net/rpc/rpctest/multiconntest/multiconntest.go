@@ -2,9 +2,9 @@ package multiconntest
 
 import (
 	"context"
-	"github.com/anyproto/any-sync/net/connutil"
-	"github.com/anyproto/any-sync/net/transport"
-	yamux2 "github.com/anyproto/any-sync/net/transport/yamux"
+	"github.com/Kimenzo/any-sync/net/connutil"
+	"github.com/Kimenzo/any-sync/net/transport"
+	yamux2 "github.com/Kimenzo/any-sync/net/transport/yamux"
 	"github.com/hashicorp/yamux"
 	"net"
 )

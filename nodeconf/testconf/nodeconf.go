@@ -6,9 +6,9 @@ import (
 
 	"github.com/anyproto/go-chash"
 
-	accountService "github.com/anyproto/any-sync/accountservice"
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/nodeconf"
+	accountService "github.com/Kimenzo/any-sync/accountservice"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/nodeconf"
 )
 
 type StubConf struct {

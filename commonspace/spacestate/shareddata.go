@@ -3,8 +3,8 @@ package spacestate
 import (
 	"sync/atomic"
 
-	"github.com/anyproto/any-sync/app"
-	"github.com/anyproto/any-sync/commonspace/object/tree/objecttree"
+	"github.com/Kimenzo/any-sync/app"
+	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"
 )
 
 const CName = "common.commonspace.spacestate"
