@@ -11,7 +11,7 @@ require (
 	github.com/anyproto/go-slip21 v1.0.0
 	github.com/anyproto/lexid v0.0.6
 	github.com/btcsuite/btcd v0.24.2
-	github.com/btcsuite/btcutil v1.0.3-0.20201208143702-a53e38424cce
+	github.com/btcsuite/btcd/btcutil v1.1.5
 	github.com/cespare/xxhash v1.1.0
 	github.com/cheggaaa/mb/v3 v3.0.2
 	github.com/gobwas/glob v0.2.3
@@ -53,6 +53,7 @@ require (
 	github.com/alecthomas/units v0.0.0-20240927000941-0f3dac36c52b // indirect
 	github.com/anyproto/go-sqlite v1.4.2-any // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
+	github.com/btcsuite/btcd/btcec/v2 v2.1.3 // indirect
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.1.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/crackcomm/go-gitignore v0.0.0-20241020182519-7843d2ba8fdf // indirect
@@ -121,5 +122,3 @@ require (
 )
 
 replace github.com/Kimenzo/any-store => ../any-store
-
-replace github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.22.1

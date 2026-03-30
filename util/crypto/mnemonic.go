@@ -9,7 +9,7 @@ import (
 	"github.com/anyproto/go-bip39"
 	"github.com/anyproto/go-slip10"
 	"github.com/btcsuite/btcd/chaincfg"
-	"github.com/btcsuite/btcutil/hdkeychain"
+	"github.com/btcsuite/btcd/btcutil/hdkeychain"
 
 	"github.com/Kimenzo/any-sync/util/ethereum/accounts"
 )
