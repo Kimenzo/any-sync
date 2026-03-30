@@ -4,13 +4,14 @@ go 1.25.7
 
 require (
 	filippo.io/edwards25519 v1.2.0
-	github.com/anyproto/any-store v0.4.6
+	github.com/Kimenzo/any-store v0.4.6
 	github.com/anyproto/go-bip39 v1.0.0
 	github.com/anyproto/go-chash v0.1.0
 	github.com/anyproto/go-slip10 v1.0.1
 	github.com/anyproto/go-slip21 v1.0.0
 	github.com/anyproto/lexid v0.0.6
 	github.com/btcsuite/btcd v0.24.2
+	github.com/btcsuite/btcutil v1.0.3-0.20201208143702-a53e38424cce
 	github.com/cespare/xxhash v1.1.0
 	github.com/cheggaaa/mb/v3 v3.0.2
 	github.com/gobwas/glob v0.2.3
@@ -116,5 +117,9 @@ require (
 	modernc.org/libc v1.66.8 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
-	modernc.org/sqlite v1.37.1 // indirect
+	modernc.org/sqlite v1.38.0 // indirect
 )
+
+replace github.com/Kimenzo/any-store => ../any-store
+
+replace github.com/btcsuite/btcd => github.com/btcsuite/btcd v0.22.1

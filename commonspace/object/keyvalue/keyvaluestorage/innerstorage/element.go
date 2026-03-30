@@ -3,7 +3,7 @@ package innerstorage
 import (
 	"errors"
 
-	"github.com/anyproto/any-store/anyenc"
+	"github.com/Kimenzo/any-store/anyenc"
 
 	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 	"github.com/Kimenzo/any-sync/util/crypto"

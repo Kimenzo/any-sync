@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	"golang.org/x/exp/slices"
 
 	"github.com/stretchr/testify/assert"

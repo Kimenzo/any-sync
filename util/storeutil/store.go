@@ -1,8 +1,8 @@
 package storeutil
 
 import (
-	"github.com/anyproto/any-store/anyenc"
-	"github.com/anyproto/any-store/anyenc/anyencutil"
+	"github.com/Kimenzo/any-store/anyenc"
+	"github.com/Kimenzo/any-store/anyenc/anyencutil"
 )
 
 func NewStringArrayValue(strings []string, arena *anyenc.Arena) *anyenc.Value {

@@ -6,9 +6,9 @@ import (
 	"errors"
 	"strings"
 
-	anystore "github.com/anyproto/any-store"
-	"github.com/anyproto/any-store/anyenc"
-	"github.com/anyproto/any-store/query"
+	anystore "github.com/Kimenzo/any-store"
+	"github.com/Kimenzo/any-store/anyenc"
+	"github.com/Kimenzo/any-store/query"
 
 	"github.com/Kimenzo/any-sync/app/ldiff"
 	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"

@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 	"storj.io/drpc"

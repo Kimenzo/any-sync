@@ -6,7 +6,7 @@ import (
 	"path"
 	"time"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 
 	"github.com/Kimenzo/any-sync/app"
 	"github.com/Kimenzo/any-sync/commonspace/object/tree/objecttree"

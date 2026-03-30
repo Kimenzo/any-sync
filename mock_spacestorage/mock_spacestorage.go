@@ -13,7 +13,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	app "github.com/Kimenzo/any-sync/app"
 	headstorage "github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
 	statestorage "github.com/Kimenzo/any-sync/commonspace/headsync/statestorage"

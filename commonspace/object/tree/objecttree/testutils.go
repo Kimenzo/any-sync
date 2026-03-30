@@ -10,7 +10,7 @@ import (
 	"sync/atomic"
 	"testing"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	libcrypto "github.com/libp2p/go-libp2p/core/crypto"
 	"github.com/stretchr/testify/require"
 

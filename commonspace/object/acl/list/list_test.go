@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

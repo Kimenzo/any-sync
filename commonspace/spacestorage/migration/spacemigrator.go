@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"time"
 
-	anystore "github.com/anyproto/any-store"
-	"github.com/anyproto/any-store/anyenc"
+	anystore "github.com/Kimenzo/any-store"
+	"github.com/Kimenzo/any-store/anyenc"
 	"go.uber.org/zap"
 	"golang.org/x/exp/slices"
 

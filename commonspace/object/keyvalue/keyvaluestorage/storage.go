@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 	"go.uber.org/zap"
 
 	"github.com/Kimenzo/any-sync/app"

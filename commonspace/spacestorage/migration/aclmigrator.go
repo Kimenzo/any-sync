@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"slices"
 
-	anystore "github.com/anyproto/any-store"
+	anystore "github.com/Kimenzo/any-store"
 
 	"github.com/Kimenzo/any-sync/commonspace/headsync/headstorage"
 	"github.com/Kimenzo/any-sync/commonspace/object/accountdata"
