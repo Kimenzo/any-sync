@@ -3,12 +3,14 @@ package periodicsync
 
 import (
 	"context"
+	"errors"
 	"sync/atomic"
 	"time"
 
 	"go.uber.org/zap"
 
 	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/net"
 )
 
 type PeriodicSync interface {
@@ -51,6 +53,12 @@ type periodicCall struct {
 	isRunning  atomic.Bool
 }
 
+func isTransientPeriodicError(err error) bool {
+	return errors.Is(err, net.ErrUnableToConnect) ||
+		errors.Is(err, context.Canceled) ||
+		errors.Is(err, context.DeadlineExceeded)
+}
+
 func (p *periodicCall) Run() {
 	p.isRunning.Store(true)
 	go p.loop(p.period)
@@ -66,7 +74,11 @@ func (p *periodicCall) loop(period time.Duration) {
 			defer cancel()
 		}
 		if err := p.caller(ctx); err != nil {
-			p.log.Warn("periodic call error", zap.Error(err))
+			if isTransientPeriodicError(err) {
+				p.log.Debug("periodic call unavailable", zap.Error(err))
+			} else {
+				p.log.Warn("periodic call error", zap.Error(err))
+			}
 		}
 	}
 	doCall()

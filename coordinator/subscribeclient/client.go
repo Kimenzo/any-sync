@@ -3,6 +3,7 @@ package subscribeclient
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"sync"
 	"time"
@@ -10,6 +11,7 @@ import (
 	"github.com/Kimenzo/any-sync/app"
 	"github.com/Kimenzo/any-sync/app/logger"
 	"github.com/Kimenzo/any-sync/coordinator/coordinatorproto"
+	anynet "github.com/Kimenzo/any-sync/net"
 	"github.com/Kimenzo/any-sync/net/pool"
 	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
 	"github.com/Kimenzo/any-sync/nodeconf"
@@ -88,17 +90,31 @@ func (s *subscribeClient) Subscribe(eventType coordinatorproto.NotifyEventType, 
 	return nil
 }
 
+func isTransientStreamError(err error) bool {
+	return errors.Is(err, anynet.ErrUnableToConnect) ||
+		errors.Is(err, context.Canceled) ||
+		errors.Is(err, context.DeadlineExceeded)
+}
+
 func (s *subscribeClient) openStream(ctx context.Context) (st *stream, err error) {
-	log.Warn("streamWatcher: trying to connect")
+	log.Debug("streamWatcher: trying to connect")
 	pr, err := s.pool.GetOneOf(ctx, s.nodeconf.CoordinatorPeers())
 	if err != nil {
-		log.Warn("streamWatcher: pool error", zap.Error(err))
+		if isTransientStreamError(err) {
+			log.Debug("streamWatcher: pool unavailable", zap.Error(err))
+		} else {
+			log.Warn("streamWatcher: pool error", zap.Error(err))
+		}
 		return nil, err
 	}
 	pr.SetTTL(time.Hour * 24)
 	dc, err := pr.AcquireDrpcConn(ctx)
 	if err != nil {
-		log.Warn("streamWatcher: drpc conn error")
+		if isTransientStreamError(err) {
+			log.Debug("streamWatcher: drpc conn unavailable", zap.Error(err))
+		} else {
+			log.Warn("streamWatcher: drpc conn error", zap.Error(err))
+		}
 		return nil, err
 	}
 	req := &coordinatorproto.NotifySubscribeRequest{
@@ -106,8 +122,13 @@ func (s *subscribeClient) openStream(ctx context.Context) (st *stream, err error
 	}
 	rpcStream, err := coordinatorproto.NewDRPCCoordinatorClient(dc).NotifySubscribe(ctx, req)
 	if err != nil {
-		log.Warn("streamWatcher: notify subscribe error")
-		return nil, rpcerr.Unwrap(err)
+		err = rpcerr.Unwrap(err)
+		if isTransientStreamError(err) {
+			log.Debug("streamWatcher: notify subscribe unavailable", zap.Error(err))
+		} else {
+			log.Warn("streamWatcher: notify subscribe error", zap.Error(err))
+		}
+		return nil, err
 	}
 	return runStream(rpcStream), nil
 }
@@ -130,10 +151,14 @@ func (s *subscribeClient) streamWatcher() {
 
 			select {
 			case <-time.After(sleepTime):
-				log.Error("streamWatcher: subscribe watch error, retry", zap.Error(err), zap.Duration("waitTime", sleepTime))
+				if isTransientStreamError(err) {
+					log.Debug("streamWatcher: subscribe watch unavailable, retry", zap.Error(err), zap.Duration("waitTime", sleepTime))
+				} else {
+					log.Error("streamWatcher: subscribe watch error, retry", zap.Error(err), zap.Duration("waitTime", sleepTime))
+				}
 				continue
 			case <-s.ctx.Done():
-				log.Info("streamWatcher: ctx.Done, closing", zap.Error(err))
+				log.Debug("streamWatcher: ctx.Done, closing", zap.Error(err))
 				return
 			}
 		}
@@ -146,7 +171,11 @@ func (s *subscribeClient) streamWatcher() {
 		if err != nil {
 			// if stream is error or shutdown, we continue to retry via openStream
 			// we exit only in case of s.close, i.e. client component close
-			log.Error("streamWatcher: error, continue", zap.Error(err))
+			if isTransientStreamError(err) {
+				log.Debug("streamWatcher: transient stream error, continue", zap.Error(err))
+			} else {
+				log.Error("streamWatcher: error, continue", zap.Error(err))
+			}
 		}
 
 	}

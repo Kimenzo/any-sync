@@ -7,6 +7,7 @@ import (
 
 	"github.com/Kimenzo/any-sync/app"
 	"github.com/Kimenzo/any-sync/app/logger"
+	anynet "github.com/Kimenzo/any-sync/net"
 	"github.com/Kimenzo/any-sync/net/pool"
 	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
 	"github.com/Kimenzo/any-sync/nodeconf"
@@ -67,7 +68,9 @@ func (s *service) doClient(ctx context.Context, fn func(cl pp.DRPCAnyPaymentProc
 	// please use "paymentProcessingNode" type of node in the config (in the network.nodes array)
 	peer, err := s.pool.GetOneOf(ctx, s.nodeconf.PaymentProcessingNodePeers())
 	if err != nil {
-		log.Error("failed to get a paymentnode peer. maybe you're on a custom network", zap.Error(err))
+		if !errors.Is(err, anynet.ErrUnableToConnect) {
+			log.Error("failed to get a paymentnode peer. maybe you're on a custom network", zap.Error(err))
+		}
 		return err
 	}
 

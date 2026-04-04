@@ -7,6 +7,7 @@ import (
 
 	"github.com/Kimenzo/any-sync/app"
 	"github.com/Kimenzo/any-sync/app/logger"
+	"github.com/Kimenzo/any-sync/net"
 	"github.com/Kimenzo/any-sync/net/pool"
 	"github.com/Kimenzo/any-sync/net/rpc/rpcerr"
 	"github.com/Kimenzo/any-sync/nodeconf"
@@ -80,7 +81,11 @@ func (s *service) doClient(ctx context.Context, fn func(cl nsp.DRPCAnynsClient) 
 	// please enable "namingNode" type of node in the config (in the network.nodes array)
 	peer, err := s.pool.GetOneOf(ctx, s.nodeconf.NamingNodePeers())
 	if err != nil {
-		log.Error("failed to get a namingnode peer", zap.Error(err))
+		if errors.Is(err, net.ErrUnableToConnect) || errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
+			log.Debug("namingnode peer unavailable", zap.Error(err))
+		} else {
+			log.Error("failed to get a namingnode peer", zap.Error(err))
+		}
 		return err
 	}
 
@@ -88,7 +93,11 @@ func (s *service) doClient(ctx context.Context, fn func(cl nsp.DRPCAnynsClient) 
 
 	dc, err := peer.AcquireDrpcConn(ctx)
 	if err != nil {
-		log.Error("failed to acquire a DRPC connection to namingnode", zap.Error(err))
+		if errors.Is(err, net.ErrUnableToConnect) || errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
+			log.Debug("namingnode drpc unavailable", zap.Error(err))
+		} else {
+			log.Error("failed to acquire a DRPC connection to namingnode", zap.Error(err))
+		}
 		return err
 	}
 	defer peer.ReleaseDrpcConn(ctx, dc)

@@ -139,7 +139,7 @@ func (s *service) Init(a *app.App) (err error) {
 	s.sync = periodicsync.NewPeriodicSync(updatePeriodSec, 0, func(ctx context.Context) (err error) {
 		err = s.updateConfiguration(ctx)
 		if err != nil {
-			if errors.Is(err, ErrConfigurationNotChanged) || errors.Is(err, ErrConfigurationNotFound) {
+			if errors.Is(err, ErrConfigurationNotChanged) || errors.Is(err, ErrConfigurationNotFound) || errors.Is(err, net.ErrUnableToConnect) || errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) {
 				err = nil
 			}
 		}

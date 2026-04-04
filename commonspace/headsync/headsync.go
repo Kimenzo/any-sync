@@ -3,6 +3,7 @@ package headsync
 
 import (
 	"context"
+	"errors"
 	"time"
 
 	"go.uber.org/zap"
@@ -22,6 +23,7 @@ import (
 	"github.com/Kimenzo/any-sync/commonspace/spacestorage"
 	"github.com/Kimenzo/any-sync/commonspace/spacesyncproto"
 	"github.com/Kimenzo/any-sync/nodeconf"
+	anynet "github.com/Kimenzo/any-sync/net"
 	"github.com/Kimenzo/any-sync/util/periodicsync"
 	"github.com/Kimenzo/any-sync/util/slice"
 )
@@ -85,7 +87,11 @@ func (h *headSync) Init(a *app.App) (err error) {
 	h.diffManager = NewDiffManager(diffContainer, h.storage, h.syncAcl, h.log, context.Background(), h.deletionState, h.keyValue)
 	h.syncer = createDiffSyncer(h)
 	sync := func(ctx context.Context) (err error) {
-		return h.syncer.Sync(ctx)
+		err = h.syncer.Sync(ctx)
+		if errors.Is(err, context.Canceled) || errors.Is(err, context.DeadlineExceeded) || errors.Is(err, anynet.ErrUnableToConnect) {
+			return nil
+		}
+		return err
 	}
 	h.periodicSync = periodicsync.NewPeriodicSync(h.syncPeriod, time.Minute, sync, h.log)
 	// TODO: move to run?
