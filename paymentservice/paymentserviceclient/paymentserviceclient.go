@@ -65,10 +65,10 @@ func New() AnyPpClientService {
  *  This should not be called in custom networks! Please see what client of this service is doing.
  *  Otherwise will return: { "no payment processing peers configured. Maybe you're on a custom network" }
  *
- * Case 2: Anytype network, no paymentProcessingNode peers in config ->
+ * Case 2: Bento network, no paymentProcessingNode peers in config ->
  *  !!! This is a big issue, probably because of problems with nodeconf. Should be logged!
  *
- * Case 3: Anytype network, paymentProcessingNode peers in config, no connectivity ->
+ * Case 3: Bento network, paymentProcessingNode peers in config, no connectivity ->
  *  This can happen due to network connectivity issues and it is OK.
  *  Will return:
  *  { "failed to get a paymentnode peer. maybe you're on a custom network","error":"unable to connect” }

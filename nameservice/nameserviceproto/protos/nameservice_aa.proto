@@ -92,7 +92,7 @@ message CreateUserOperationRequestSigned {
   // CreateUserOperationRequest struct
   bytes payload = 1;
 
-  // payload signed with Anytype identity
+  // payload signed with Bento identity
   bytes signature = 2;
 }
 

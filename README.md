@@ -57,7 +57,7 @@ You can find the various parts of the protocol implemented in Go in the followin
 - [`any-sync-coordinator`](https://github.com/Kimenzo/any-sync-coordinator) — implementation of a coordinator node responsible for network configuration management.
 
 ## Contribution
-Thank you for your desire to develop Anytype together!
+Thank you for your desire to develop Bento together!
 
 ❤️ This project and everyone involved in it is governed by the [Code of Conduct](https://github.com/Kimenzo/.github/blob/main/docs/CODE_OF_CONDUCT.md).
 

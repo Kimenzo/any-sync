@@ -38,7 +38,7 @@ const (
 	SubscriptionTier_TierBuilder1Year   SubscriptionTier = 4
 	SubscriptionTier_TierCoCreator1Year SubscriptionTier = 5
 	SubscriptionTier_TierBuilderPlus    SubscriptionTier = 6
-	SubscriptionTier_TierAnytypeTeam    SubscriptionTier = 7
+	SubscriptionTier_TierBentoTeam    SubscriptionTier = 7
 )
 
 // Enum value maps for SubscriptionTier.
@@ -51,7 +51,7 @@ var (
 		4: "TierBuilder1Year",
 		5: "TierCoCreator1Year",
 		6: "TierBuilderPlus",
-		7: "TierAnytypeTeam",
+		7: "TierBentoTeam",
 	}
 	SubscriptionTier_value = map[string]int32{
 		"TierUnknown":            0,
@@ -61,7 +61,7 @@ var (
 		"TierBuilder1Year":       4,
 		"TierCoCreator1Year":     5,
 		"TierBuilderPlus":        6,
-		"TierAnytypeTeam":        7,
+		"TierBentoTeam":        7,
 	}
 )
 
@@ -2155,7 +2155,7 @@ const file_paymentservice_paymentserviceproto_protos_paymentservice_proto_rawDes
 	"\x10TierBuilder1Year\x10\x04\x12\x16\n" +
 	"\x12TierCoCreator1Year\x10\x05\x12\x13\n" +
 	"\x0fTierBuilderPlus\x10\x06\x12\x13\n" +
-	"\x0fTierAnytypeTeam\x10\a*s\n" +
+	"\x0fTierBentoTeam\x10\a*s\n" +
 	"\x12SubscriptionStatus\x12\x11\n" +
 	"\rStatusUnknown\x10\x00\x12\x11\n" +
 	"\rStatusPending\x10\x01\x12\x10\n" +

@@ -163,7 +163,7 @@ func (k *Ed25519PrivKey) LibP2P() (crypto.PrivKey, error) {
 	return crypto.UnmarshalEd25519PrivateKey(k.privKey)
 }
 
-// Account returns string representation of key in anytype account format
+// Account returns string representation of key in bento account format
 func (k *Ed25519PubKey) Account() string {
 	res, _ := strkey.Encode(strkey.AccountAddressVersionByte, k.pubKey)
 	return res

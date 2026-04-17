@@ -21,7 +21,7 @@ enum SubscriptionTier {
   TierCoCreator1Year = 5;
 
   TierBuilderPlus = 6;
-  TierAnytypeTeam = 7;
+  TierBentoTeam = 7;
 }
 
 enum SubscriptionStatus {

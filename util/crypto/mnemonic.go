@@ -21,7 +21,7 @@ var (
 
 const (
 	// https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-	anytypeAccountNewPrefix = "m/44'/2046'"
+	bentoAccountNewPrefix = "m/44'/2046'"
 
 	// https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 	// standard Ethereum path (MetaMask, MyEtherWallet, etc) is
@@ -37,7 +37,7 @@ type DerivationResult struct {
 	Identity   PrivKey
 	MasterNode slip10.Node
 
-	// Anytype uses ED25519
+	// Bento uses ED25519
 	// Ethereum and Bitcoin use ECDSA secp256k1 elliptic curves
 	//
 	// this key is used to sign ethereum transactions to use Any Naming Service
@@ -75,7 +75,7 @@ func (m Mnemonic) DeriveMasterNode(index uint32) (masterNode slip10.Node, err er
 		return
 	}
 
-	prefixNode, err := slip10.DeriveForPath(anytypeAccountNewPrefix, seed)
+	prefixNode, err := slip10.DeriveForPath(bentoAccountNewPrefix, seed)
 	if err != nil {
 		return
 	}
@@ -88,7 +88,7 @@ func (m Mnemonic) DeriveMasterNode(index uint32) (masterNode slip10.Node, err er
 // DeriveMasterNodeFromSeed derives a master node from a seed at the specified index
 // This creates a node at path m/44'/2046'/index'
 func DeriveMasterNodeFromSeed(seed []byte, index uint32) (masterNode slip10.Node, err error) {
-	prefixNode, err := slip10.DeriveForPath(anytypeAccountNewPrefix, seed)
+	prefixNode, err := slip10.DeriveForPath(bentoAccountNewPrefix, seed)
 	if err != nil {
 		return
 	}

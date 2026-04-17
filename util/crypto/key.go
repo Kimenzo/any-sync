@@ -45,9 +45,9 @@ type PubKey interface {
 	Marshall() ([]byte, error)
 	// Storage returns underlying key storage
 	Storage() []byte
-	// Account returns string representation for anytype account
+	// Account returns string representation for bento account
 	Account() string
-	// Network returns string representation for anytype network
+	// Network returns string representation for bento network
 	Network() string
 	// PeerId returns string representation for peer id
 	PeerId() string

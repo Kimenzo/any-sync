@@ -577,7 +577,7 @@ type CreateUserOperationRequestSigned struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// CreateUserOperationRequest struct
 	Payload []byte `protobuf:"bytes,1,opt,name=payload,proto3" json:"payload,omitempty"`
-	// payload signed with Anytype identity
+	// payload signed with Bento identity
 	Signature     []byte `protobuf:"bytes,2,opt,name=signature,proto3" json:"signature,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache

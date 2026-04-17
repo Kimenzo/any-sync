@@ -406,7 +406,7 @@ func StoragePayloadForOneToOneSpace(aSk crypto.PrivKey, bPk crypto.PubKey) (stor
 	// preparing header and space id
 	header := &spacesyncproto.SpaceHeader{
 		Identity:           identity,
-		SpaceType:          "anytype.onetoone",
+		SpaceType:          "bento.onetoone",
 		SpaceHeaderPayload: oneToOneInfoBytes,
 		ReplicationKey:     repKey,
 		SettingPayload:     settingsRoot.RawChange,
@@ -512,7 +512,7 @@ func ValidateSpaceHeader(rawHeaderWithId *spacesyncproto.RawSpaceHeaderWithId, i
 		}
 	}
 
-	if header.SpaceType == "anytype.onetoone" {
+	if header.SpaceType == "bento.onetoone" {
 		var oneToOneInfo aclrecordproto.AclOneToOneInfo
 		err = oneToOneInfo.UnmarshalVT(header.SpaceHeaderPayload)
 		if err != nil {
